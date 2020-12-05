@@ -72,7 +72,7 @@ if (errRET = 0) then
   objLOG.write vbnewline & vbnewline & now & " - STARTING AUTO_PLANv2" & vbnewline
 	''AUTOMATIC UPDATE, AUTO_PLAN.VBS, REF #2 , REF #68 , REF #69 , FIXES #5 
   ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #68 , REF #69
-  call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
+  call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
   ''EXECUTE CHKAU.VBS SCRIPT, REF #69
   objOUT.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : AUTO_PLANv2 : " & strVER
   objLOG.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : AUTO_PLANv2 : " & strVER
@@ -356,7 +356,7 @@ sub STAGE3()
   ''DOWNLOAD SERVICE LOGON SCRIPT : SVCPERM , REF #16
   objOUT.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING SERVICE LOGON SCRIPT : SVCPERM"
   objLOG.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING SERVICE LOGON SCRIPT : SVCPERM"
-  call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/SVCperm.vbs", "C:\IT\Scripts", "SVCperm.vbs")
+  call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/SVCperm.vbs", "C:\IT\Scripts", "SVCperm.vbs")
   if (objFSO.fileexists("c:\IT\Scripts\SVCperm.vbs")) then
     ''EXECUTE SERVICE LOGON SCRIPT : SVCPERM , REF #16
     objOUT.write vbnewline & now & vbtab & vbtab & " - EXECUTING SERVICE LOGON SCRIPT : SVCPERM"
@@ -405,7 +405,7 @@ sub STAGE4()
     ''DOWNLOAD SNMP SETUP : SNMPPARAM, REF #6 , FIXES #15
     objOUT.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING SNMP SETUP : SNMPPARAM"
     objLOG.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING SNMP SETUP : SNMPPARAM"
-    call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/SNMPparam.vbs", "C:\IT\Scripts", "SNMPparam.vbs")
+    call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/SNMPparam.vbs", "C:\IT\Scripts", "SNMPparam.vbs")
     if (objFSO.fileexists("c:\IT\Scripts\SNMPparam.vbs")) then
       ''INSTALL SNMP VIA SNMPPARAM , REF #6 , FIXES #15
       objOUT.write vbnewline & now & vbtab & vbtab & " - SNMP SETUP : SNMPPARAM"
@@ -478,7 +478,7 @@ sub STAGE5()
         ''DOWNLOAD WINDOWS AGENT SETUP : RE-AGENT , FIXES #7
         objOUT.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING WINDOWS AGENT SETUP : RE-AGENT"
         objLOG.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING WINDOWS AGENT SETUP : RE-AGENT"
-        call FILEDL("https://raw.githubusercontent.com/CW-Khristos/CW_MSI/master/exe_reagent.vbs", "C:\IT\Scripts", "exe_reagent.vbs")
+        call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/CW_MSI/master/exe_reagent.vbs", "C:\IT\Scripts", "exe_reagent.vbs")
         if (objFSO.fileexists("c:\IT\Scripts\exe_reagent.vbs")) then
           ''INSTALL WINDOWS AGENT VIA RE-AGENT , FIXES #7
           objOUT.write vbnewline & now & vbtab & vbtab & " - WINDOWS AGENT SETUP : RE-AGENT, PLEASE WAIT FOR 'MSIEXEC' PROCESSES TO COMPLETE"
@@ -582,7 +582,7 @@ sub STAGE6()
             ''DOWNLOAD WINDOWS PROBE SETUP : RE-PROBE , FIXES #7
             objOUT.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING WINDOWS PROBE SETUP : RE-PROBE"
             objLOG.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING WINDOWS PROBE SETUP : RE-PROBE"
-            call FILEDL("https://raw.githubusercontent.com/CW-Khristos/CW_MSI/master/exe_reprobe.vbs", "C:\IT\Scripts", "exe_reprobe.vbs")
+            call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/CW_MSI/master/exe_reprobe.vbs", "C:\IT\Scripts", "exe_reprobe.vbs")
             if (objFSO.fileexists("c:\IT\Scripts\exe_reprobe.vbs")) then
               ''INSTALL WINDOWS PROBE VIA RE-PROBE , FIXES #7
               objOUT.write vbnewline & now & vbtab & vbtab & " - WINDOWS PROBE SETUP : RE-PROBE, PLEASE WAIT FOR 'MSIEXEC' PROCESSES TO COMPLETE"
@@ -759,7 +759,7 @@ sub STAGE9()
         ''DOWNLOAD LSV PERMISSIONS SETUP : LSVPERM, REF #6 , FIXES #12
         objOUT.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING LSV PERMISSIONS SETUP : LSVPERM"
         objLOG.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING LSV PERMISSIONS SETUP : LSVPERM"
-        call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/MSP%20Backups/LSVperm.vbs", "C:\IT\Scripts", "LSVperm.vbs")
+        call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/MSP%20Backups/LSVperm.vbs", "C:\IT\Scripts", "LSVperm.vbs")
         if (objFSO.fileexists("c:\IT\Scripts\LSVperm.vbs")) then
           ''RESTRICT LSV PERMISSIONS VIA LSVPERM, REF #6 , FIXES #12
           objOUT.write vbnewline & now & vbtab & vbtab & " - RESTRICT LSV PERMISSIONS SETUP : LSVPERM"

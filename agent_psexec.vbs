@@ -62,7 +62,7 @@ objLOG.write vbnewline & vbnewline & now & vbtab & " - EXECUTING AGENT_PSEXEC"
 ''AUTOMATIC UPDATE, AGENT_PSEXEC.VBS, REF #2
 call CHKAU()
 ''DOWNLOAD REAGENT.VBS SCRIPT TO PREPARE FOR TRANSFER TO REMOTE DEVICE
-call FILEDL("https://github.com/CW-Khristos/CW_MSI/raw/master/reagent.vbs", "reagent.vbs")
+call FILEDL("https://github.com/computerwarriorsits/CW_MSI/raw/master/reagent.vbs", "reagent.vbs")
 ''SHARE DIRECTORY CONTAINING WINDOWS AGENT MSI AND PSEXEC
 call HOOK("net share Agent=" & chr(34) & strSPTH & chr(34) & " /grant:" & strSUSR & ",FULL")
 ''LAUNCH PSEXEC
@@ -103,7 +103,7 @@ sub CHKAU()																									''CHECK FOR SCRIPT UPDATE, RE-AGENT.VBS, REF
 	''FORCE SYNCHRONOUS
 	objXML.async = false
 	''LOAD SCRIPT VERSIONS DATABASE XML
-	if objXML.load("https://github.com/CW-Khristos/scripts/raw/master/version.xml") then
+	if objXML.load("https://github.com/computerwarriorsits/scripts/raw/master/version.xml") then
 		set colVER = objXML.documentelement
 		for each objSCR in colVER.ChildNodes
 			''LOCATE CURRENTLY RUNNING SCRIPT
@@ -113,7 +113,7 @@ sub CHKAU()																									''CHECK FOR SCRIPT UPDATE, RE-AGENT.VBS, REF
 					objOUT.write vbnewline & now & vbtab & " - UPDATING " & objSCR.nodename & " : " & objSCR.text & vbnewline
 					objLOG.write vbnewline & now & vbtab & " - UPDATING " & objSCR.nodename & " : " & objSCR.text & vbnewline
 					''DOWNLOAD LATEST VERSION OF SCRIPT
-					call FILEDL("https://github.com/CW-Khristos/CW_MSI/raw/master/agent_psexec.vbs", wscript.scriptname)
+					call FILEDL("https://github.com/computerwarriorsits/CW_MSI/raw/master/agent_psexec.vbs", wscript.scriptname)
 					''RUN LATEST VERSION
 					if (wscript.arguments.count > 0) then             ''ARGUMENTS WERE PASSED
 						for x = 0 to (wscript.arguments.count - 1)

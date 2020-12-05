@@ -67,7 +67,7 @@ objLOG.write vbnewline & vbnewline & now & vbtab & " - EXECUTING QSMART" & vbnew
 call CHKAU()
 ''CHECK FOR SMARTCTL.EXE IN C:\TEMP , QSMART.VBS, REF #2 , REF #42 , FIXES #44
 if (not objFSO.fileexists("c:\temp\smartctl.exe")) then
-  call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/SMART/smartctl.exe", "smartctl.exe")
+  call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/SMART/smartctl.exe", "smartctl.exe")
 end if
 ''GET LIST OF AVAILABLE DRIVES , 'ERRRET'=2 , QSMART.VBS, REF #2 , REF #42 , FIXES #44
 intDRV = 0
@@ -361,7 +361,7 @@ sub CHKAU()																					        ''CHECK FOR SCRIPT UPDATE , QSMART.VBS ,
 	''FORCE SYNCHRONOUS
 	objXML.async = false
 	''LOAD SCRIPT VERSIONS DATABASE XML
-	if objXML.load("https://github.com/CW-Khristos/scripts/raw/dev/version.xml") then
+	if objXML.load("https://github.com/computerwarriorsits/scripts/raw/dev/version.xml") then
 		set colVER = objXML.documentelement
 		for each objSCR in colVER.ChildNodes
 			''LOCATE CURRENTLY RUNNING SCRIPT
@@ -371,7 +371,7 @@ sub CHKAU()																					        ''CHECK FOR SCRIPT UPDATE , QSMART.VBS ,
 					objOUT.write vbnewline & now & " - UPDATING " & objSCR.nodename & " : " & objSCR.text & vbnewline
 					objLOG.write vbnewline & now & " - UPDATING " & objSCR.nodename & " : " & objSCR.text & vbnewline
 					''DOWNLOAD LATEST VERSION OF SCRIPT
-					call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/qSMART.vbs", wscript.scriptname)
+					call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/qSMART.vbs", wscript.scriptname)
 					''RUN LATEST VERSION
 					if (wscript.arguments.count > 0) then             ''ARGUMENTS WERE PASSED
 						for x = 0 to (wscript.arguments.count - 1)

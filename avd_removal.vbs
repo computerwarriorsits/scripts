@@ -88,30 +88,30 @@ elseif (errRET = 0) then
     ''DOWNLOAD Uninstall_Tool_6.6.2.49 VERSION OF SCRIPT
     if (strUVER = "662") then
       strUVER = "Uninstall_Tool_6.6.2.49.exe"
-      call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/AVD_Latest_Removal_Tool/Uninstall_Tool_6.6.2.49.exe", "Uninstall_Tool_6.6.2.49.exe")
+      call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/AVD_Latest_Removal_Tool/Uninstall_Tool_6.6.2.49.exe", "Uninstall_Tool_6.6.2.49.exe")
     ''DOWNLOAD Uninstall_Tool_6.4.2.79 VERSION OF SCRIPT
     elseif (strUVER = "642") then
       strUVER = "Uninstall_Tool_6.4.2.79.exe"
-      call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/AVD_Latest_Removal_Tool/Uninstall_Tool_6.4.2.79.exe", "Uninstall_Tool_6.4.2.79.exe")
+      call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/AVD_Latest_Removal_Tool/Uninstall_Tool_6.4.2.79.exe", "Uninstall_Tool_6.4.2.79.exe")
     ''DOWNLOAD Uninstall_Tool_6.6.10.148 VERSION OF SCRIPT
     elseif (strUVER = "6610") then
       strUVER = "Uninstall_Tool_6.6.10.148.exe"
-      call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/AVD_Latest_Removal_Tool/Uninstall_Tool_6.6.10.148.exe", "Uninstall_Tool_6.6.10.148.exe")
+      call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/AVD_Latest_Removal_Tool/Uninstall_Tool_6.6.10.148.exe", "Uninstall_Tool_6.6.10.148.exe")
     end if
   ''SILENT UNINSTALL
   elseif (blnSLT) then
     ''DOWNLOAD UninstallToolSilent6.6.2.49 VERSION OF SCRIPT
     if (strUVER = "662") then
       strUVER = "UninstallToolSilent6.6.2.49.exe"
-      call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/AVD_Latest_Removal_Tool/UninstallToolSilent6.6.2.49.exe", "UninstallToolSilent6.6.2.49.exe")
+      call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/AVD_Latest_Removal_Tool/UninstallToolSilent6.6.2.49.exe", "UninstallToolSilent6.6.2.49.exe")
     ''DOWNLOAD UninstallToolSilent6.4.2.79 VERSION OF SCRIPT
     elseif (strUVER = "642") then
       strUVER = "UninstallToolSilent6.4.2.79.exe"
-      call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/AVD_Latest_Removal_Tool/UninstallToolSilent6.4.2.79.exe", "UninstallToolSilent6.4.2.79.exe")
+      call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/AVD_Latest_Removal_Tool/UninstallToolSilent6.4.2.79.exe", "UninstallToolSilent6.4.2.79.exe")
     ''DOWNLOAD UninstallToolSilent_6.6.11.164 VERSION OF SCRIPT
     elseif (strUVER = "6610") then
       strUVER = "UninstallToolSilent_6.6.11.164.exe"
-      call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/AVD_Latest_Removal_Tool/UninstallToolSilent_6.6.11.164.exe", "UninstallToolSilent_6.6.11.164.exe")
+      call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/AVD_Latest_Removal_Tool/UninstallToolSilent_6.6.11.164.exe", "UninstallToolSilent_6.6.11.164.exe")
     end if
   end if
   ''RUN REMOVAL TOOL AND WAIT FOR COMPLETION
@@ -388,7 +388,7 @@ sub CHKAU()																					        ''CHECK FOR SCRIPT UPDATE , 'ERRRET'=10 
 	''FORCE SYNCHRONOUS
 	objXML.async = false
 	''LOAD SCRIPT VERSIONS DATABASE XML
-	if objXML.load("https://github.com/CW-Khristos/scripts/raw/dev/version.xml") then
+	if objXML.load("https://github.com/computerwarriorsits/scripts/raw/dev/version.xml") then
 		set colVER = objXML.documentelement
 		for each objSCR in colVER.ChildNodes
 			''LOCATE CURRENTLY RUNNING SCRIPT
@@ -400,7 +400,7 @@ sub CHKAU()																					        ''CHECK FOR SCRIPT UPDATE , 'ERRRET'=10 
 					objOUT.write vbnewline & now & " - UPDATING " & objSCR.nodename & " : " & objSCR.text & vbnewline
 					objLOG.write vbnewline & now & " - UPDATING " & objSCR.nodename & " : " & objSCR.text & vbnewline
 					''DOWNLOAD LATEST VERSION OF SCRIPT
-					call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/avd_removal.vbs", wscript.scriptname)
+					call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/avd_removal.vbs", wscript.scriptname)
 					''RUN LATEST VERSION
 					if (wscript.arguments.count > 0) then             ''ARGUMENTS WERE PASSED
 						for x = 0 to (wscript.arguments.count - 1)

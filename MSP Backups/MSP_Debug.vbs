@@ -95,7 +95,7 @@ objLOG.write vbnewline & now & " - EXECUTING MSP_DEBUG" & vbnewline
 if (errRET = 0) then
   ''AUTOMATIC UPDATE, MSP_DEBUG.VBS, REF #2 , REF #69 , REF #68 , FIXES #24
   ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #69 , REF #68
-  call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
+  call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
   ''EXECUTE CHKAU.VBS SCRIPT, REF #69
   objOUT.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : MSP_DEBUG : " & strVER
   objLOG.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : MSP_DEBUG : " & strVER

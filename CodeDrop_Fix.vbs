@@ -69,7 +69,7 @@ if (errRET = 0) then                                                  ''NO ERROR
   objLOG.write vbnewline & now & " - STARTING CODEDROP_FIX" & vbnewline
   ''AUTOMATIC UPDATE, CODEDROP_FIX.VBS, REF #1 , REF #2 , REF #69 , REF #68
   ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #69 , REF #68
-  call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
+  call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
   ''EXECUTE CHKAU.VBS SCRIPT, REF #69
   objOUT.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : CODEDROP_FIX : " & strVER
   objLOG.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : CODEDROP_FIX : " & strVER
@@ -98,10 +98,10 @@ if (errRET = 0) then                                                  ''NO ERROR
       strCDD = "C:\Program Files (x86)\N-able Technologies\Windows Agent\bin"
       objOUT.write vbnewline & now & vbtab & " - DOWNLOADING CODEDROP 'SELF-HEAL' FILES"
       objLOG.write vbnewline & now & vbtab & " - DOWNLOADING CODEDROP 'SELF-HEAL' FILES"
-      call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/CodeDrop/selfheal/codedrop_APR2_NCI-15758/agent.exe", "C:\IT", "agent.exe")
-      call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/CodeDrop/selfheal/codedrop_APR2_NCI-15758/CodeDropMeta.xml", "C:\IT", "CodeDropMeta.xml")
-      'call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/CodeDrop/selfheal/codedrop_MAR17_NCI-15758/agent.exe", "C:\IT", "agent.exe")
-      'call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/CodeDrop/selfheal/codedrop_MAR17_NCI-15758/CodeDropMeta.xml", "C:\IT", "CodeDropMeta.xml")
+      call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/CodeDrop/selfheal/codedrop_APR2_NCI-15758/agent.exe", "C:\IT", "agent.exe")
+      call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/CodeDrop/selfheal/codedrop_APR2_NCI-15758/CodeDropMeta.xml", "C:\IT", "CodeDropMeta.xml")
+      'call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/CodeDrop/selfheal/codedrop_MAR17_NCI-15758/agent.exe", "C:\IT", "agent.exe")
+      'call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/CodeDrop/selfheal/codedrop_MAR17_NCI-15758/CodeDropMeta.xml", "C:\IT", "CodeDropMeta.xml")
       wscript.sleep 5000
       ''RENAME 'OLD' CODEDROP FILES
       objOUT.write vbnewline & now & vbtab & " - RENAMING 'OLD' CODEDROP FILES"
@@ -129,8 +129,8 @@ if (errRET = 0) then                                                  ''NO ERROR
       strCDD = "C:\Program Files (x86)\N-Able Technologies\Reactive\bin"
       objOUT.write vbnewline & now & vbtab & " - DOWNLOADING CODEDROP 'COPY/PASTE' FILES"
       objLOG.write vbnewline & now & vbtab & " - DOWNLOADING CODEDROP 'COPY/PASTE' FILES"
-      call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/CodeDrop/copypaste/ConsoleAPIWrapper32_64/ConsoleAPIWrapper32.dll", "C:\IT", "ConsoleAPIWrapper32.dll")
-      call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/CodeDrop/copypaste/ConsoleAPIWrapper32_64/ConsoleAPIWrapper64.dll", "C:\IT", "ConsoleAPIWrapper64.dll")
+      call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/CodeDrop/copypaste/ConsoleAPIWrapper32_64/ConsoleAPIWrapper32.dll", "C:\IT", "ConsoleAPIWrapper32.dll")
+      call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/CodeDrop/copypaste/ConsoleAPIWrapper32_64/ConsoleAPIWrapper64.dll", "C:\IT", "ConsoleAPIWrapper64.dll")
       wscript.sleep 5000
       ''RENAME 'OLD' CODEDROP FILES
       objOUT.write vbnewline & now & vbtab & " - RENAMING 'OLD' CODEDROP FILES"

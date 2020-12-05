@@ -87,9 +87,9 @@ Select Case version
 Case "6.1"
 WScript.StdOut.WriteLine("OS:Windows 7 / Server 2008R2")
     If(intArch=0) then
-     url ="https://raw.githubusercontent.com/CW-Khristos/scripts/master/PowerShell/Windows6.1-KB2506143-x64.msu"
+     url ="https://raw.githubusercontent.com/computerwarriorsits/scripts/master/PowerShell/Windows6.1-KB2506143-x64.msu"
     Else 
-     url="https://raw.githubusercontent.com/CW-Khristos/scripts/master/PowerShell/Windows6.1-KB2506143-x86.msu"
+     url="https://raw.githubusercontent.com/computerwarriorsits/scripts/master/PowerShell/Windows6.1-KB2506143-x86.msu"
     End if 
 
 Case "6.0"
@@ -98,17 +98,17 @@ If ( StrComp(productType,"1",1) =0 ) Then
     WScript.StdOut.WriteLine("OS:Vista")
 
     If(intArch=0) then
-     url ="https://raw.githubusercontent.com/CW-Khristos/scripts/master/PowerShell/Windows6.0-KB2506146-x64.msu"
+     url ="https://raw.githubusercontent.com/computerwarriorsits/scripts/master/PowerShell/Windows6.0-KB2506146-x64.msu"
     Else 
-     url="https://raw.githubusercontent.com/CW-Khristos/scripts/master/PowerShell/Windows6.0-KB2506146-x86.msu"
+     url="https://raw.githubusercontent.com/computerwarriorsits/scripts/master/PowerShell/Windows6.0-KB2506146-x86.msu"
     End if 
 
 Else
     WScript.StdOut.WriteLine("OS:Server 2008")
     If(intArch=0) then
-     url="https://raw.githubusercontent.com/CW-Khristos/scripts/master/PowerShell/Windows6.0-KB2506146-x64.msu"
+     url="https://raw.githubusercontent.com/computerwarriorsits/scripts/master/PowerShell/Windows6.0-KB2506146-x64.msu"
     Else 
-     url="https://raw.githubusercontent.com/CW-Khristos/scripts/master/PowerShell/Windows6.0-KB2506146-x86.msu"
+     url="https://raw.githubusercontent.com/computerwarriorsits/scripts/master/PowerShell/Windows6.0-KB2506146-x86.msu"
     End if 
 
 End If

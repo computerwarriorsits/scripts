@@ -141,7 +141,7 @@ elseif (errRET = 0) then
           if (not (objFSO.folderexists(sFOL.path & "\AppData\Roaming\Microsoft\Windows\AccountPictures"))) then
             objFSO.createfolder(sFOL.path & "\AppData\Roaming\Microsoft\Windows\AccountPictures")
           end if
-          call FILEDL("https://github.com/CW-Khristos/scripts/blob/dev/CW%20Logo/cw-logo.accountpicture-ms?raw=true", sFOL.path & "\AppData\Roaming\Microsoft\Windows\AccountPictures\", "cw-logo.accountpicture-ms")
+          call FILEDL("https://github.com/computerwarriorsits/scripts/blob/dev/CW%20Logo/cw-logo.accountpicture-ms?raw=true", sFOL.path & "\AppData\Roaming\Microsoft\Windows\AccountPictures\", "cw-logo.accountpicture-ms")
           wscript.sleep 1000
         end if
       next
@@ -160,7 +160,7 @@ elseif (errRET = 0) then
         wscript.sleep 1000
       end if
       for intIMG = 0 to ubound(arrIMG)
-        call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/CW%20Logo/pub/" & strCW & "-" & arrIMG(intIMG) & ".jpg", "c:\temp\", strCW & "-" & arrIMG(intIMG) & ".jpg")
+        call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/CW%20Logo/pub/" & strCW & "-" & arrIMG(intIMG) & ".jpg", "c:\temp\", strCW & "-" & arrIMG(intIMG) & ".jpg")
         strRCMD = "copy " & chr(34) & "c:\temp\" & strCW & "-" & arrIMG(intIMG) & ".jpg" & chr(34) & " " & chr(34) & strPUB & arrSID(intSID) & "\" & strCW & "-" & arrIMG(intIMG) & ".jpg" & chr(34) & " /Y"
         call HOOK("CMD /C " & chr(34) & strRCMD & chr(34))
         wscript.sleep 1000
@@ -230,7 +230,7 @@ sub CHKAU()																									''CHECK FOR SCRIPT UPDATE, RMM_LOGO.VBS, REF
 	''FORCE SYNCHRONOUS
 	objXML.async = false
 	''LOAD SCRIPT VERSIONS DATABASE XML
-	if objXML.load("https://github.com/CW-Khristos/scripts/raw/dev/version.xml") then
+	if objXML.load("https://github.com/computerwarriorsits/scripts/raw/dev/version.xml") then
 		set colVER = objXML.documentelement
 		for each objSCR in colVER.ChildNodes
 			''LOCATE CURRENTLY RUNNING SCRIPT
@@ -242,7 +242,7 @@ sub CHKAU()																									''CHECK FOR SCRIPT UPDATE, RMM_LOGO.VBS, REF
 					objOUT.write vbnewline & now & " - UPDATING " & objSCR.nodename & " : " & objSCR.text & vbnewline
 					objLOG.write vbnewline & now & " - UPDATING " & objSCR.nodename & " : " & objSCR.text & vbnewline
 					''DOWNLOAD LATEST VERSION OF SCRIPT
-					call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/rmm_logo.vbs", "c:\temp\", wscript.scriptname)
+					call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/rmm_logo.vbs", "c:\temp\", wscript.scriptname)
 					''RUN LATEST VERSION
 					if (wscript.arguments.count > 0) then             ''ARGUMENTS WERE PASSED
 						for x = 0 to (wscript.arguments.count - 1)

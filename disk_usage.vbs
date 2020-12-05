@@ -66,7 +66,7 @@ if (errRET = 1) then                                          ''NO ARGUMENTS PAS
   objLOG.write vbnewline & vbnewline & now & vbtab & " - EXECUTING DISK_USAGE"
 	''AUTOMATIC UPDATE, DISK_USAGE.VBS, REF #2 , REF #69 , REF #68
   ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #68 , REF #69 , FIXES #45
-  call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
+  call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
   ''EXECUTE CHKAU.VBS SCRIPT, REF #69
   objOUT.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : DISK_USAGE : " & strVER
   objLOG.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : DISK_USAGE : " & strVER
@@ -83,11 +83,11 @@ if (errRET = 1) then                                          ''NO ARGUMENTS PAS
   if ((intRET = 4) or (intRET = 10) or (intRET = 11) or (intRET = 1) or (intRET = 2147221505) or (intRET = 2147221517)) then
     ''CHECK FOR X.ROBOT.EXE IN C:\TEMP\X.ROBOT32
     if (not objFSO.fileexists("c:\IT\X.Robot32\x.robot.exe")) then
-      call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/XRobot/X.Robot32.zip", "C:\IT", "X.Robot32.zip")
+      call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/XRobot/X.Robot32.zip", "C:\IT", "X.Robot32.zip")
       wscript.sleep 5000
       ''CHECK FOR X.ROBOT32.ZIP IN C:\TEMP, REF #46
       if (not objFSO.fileexists("c:\IT\X.Robot32.zip")) then
-        call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/XRobot/X.Robot32.zip", "C:\IT", "X.Robot32.zip")
+        call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/XRobot/X.Robot32.zip", "C:\IT", "X.Robot32.zip")
       end if
       if (objFSO.fileexists("C:\IT\X.Robot32.zip")) then
         ''EXTRACT X.ROBOT32.ZIP TO C:\TEMP\XROBOT
@@ -107,7 +107,7 @@ if (errRET = 1) then                                          ''NO ARGUMENTS PAS
       ''DISABLED ZIP ARCHIVE CALLS
       'wscript.sleep 5000
       if (ucase(strFORM) = "HTM") then
-        call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/XRobot/SavePage.exe", "C:\IT", "savepage.exe")
+        call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/XRobot/SavePage.exe", "C:\IT", "savepage.exe")
         strRCMD = "c:\IT\savepage.exe " & chr(34) & "XRobot - Report" & chr(34) & " " & chr(34) & "file://c:/IT/robot.htm" & chr(34) & " " & chr(34) & "C:\IT\" & chr(34)
         call HOOK("CMD /C " & chr(34) & strRCMD & chr(34))
       '  call makZIP("c:\temp\robot.htm", "c:\temp\robot.zip")
@@ -121,7 +121,7 @@ elseif (errRET = 0) then                                      ''ARGUMENTS PASSED
   objLOG.write vbnewline & vbnewline & now & vbtab & " - EXECUTING DISK_USAGE"
 	''AUTOMATIC UPDATE, DISK_USAGE.VBS, REF #2 , REF #68 , REF #69 , FIXES #45
   ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #68 , REF #69
-  call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
+  call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
   ''EXECUTE CHKAU.VBS SCRIPT, REF #69
   objOUT.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : DISK_USAGE : " & strVER
   objLOG.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : DISK_USAGE : " & strVER
@@ -138,11 +138,11 @@ elseif (errRET = 0) then                                      ''ARGUMENTS PASSED
   if ((intRET = 4) or (intRET = 10) or (intRET = 11) or (intRET = 1) or (intRET = 2147221505) or (intRET = 2147221517)) then
     ''CHECK FOR X.ROBOT.EXE IN C:\TEMP\X.ROBOT32
     if (not objFSO.fileexists("c:\IT\X.Robot32\x.robot.exe")) then
-      call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/XRobot/X.Robot32.zip", "C:\IT", "X.Robot32.zip")
+      call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/XRobot/X.Robot32.zip", "C:\IT", "X.Robot32.zip")
       wscript.sleep 5000
       ''CHECK FOR X.ROBOT32.ZIP IN C:\TEMP, REF #46
       if (not objFSO.fileexists("c:\IT\X.Robot32.zip")) then
-        call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/XRobot/X.Robot32.zip", "C:\IT", "X.Robot32.zip")
+        call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/XRobot/X.Robot32.zip", "C:\IT", "X.Robot32.zip")
       end if
       if (objFSO.fileexists("C:\IT\X.Robot32.zip")) then
         ''EXTRACT X.ROBOT32.ZIP TO C:\TEMP\XROBOT
@@ -165,7 +165,7 @@ elseif (errRET = 0) then                                      ''ARGUMENTS PASSED
       'wscript.sleep 5000
       ''CONVERT TO HTM FORMAT
       if (ucase(strFORM) = "HTM") then
-        call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/XRobot/SavePage.exe", "C:\IT", "savepage.exe")
+        call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/XRobot/SavePage.exe", "C:\IT", "savepage.exe")
         strRCMD = "c:\IT\savepage.exe " & chr(34) & "XRobot - Report" & chr(34) & " " & chr(34) & "file://c:/IT/robot.htm" & chr(34) & " " & chr(34) & "C:\IT\" & chr(34)
         call HOOK("CMD /C " & chr(34) & strRCMD & chr(34))
         ''ARCHIVE HTM REPORT DATA

@@ -87,7 +87,7 @@ if (errRET = 0) then                                   ''ARGUMENTS PASSED, CONTI
 	objLOG.write vbnewline & vbnewline & now & vbtab & " - EXECUTING FASTNET"
 	''AUTOMATIC UPDATE, FASTNET.VBS, REF #2 , REF #69 , REF #68
   ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #69 , REF #68
-  call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
+  call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
   ''EXECUTE CHKAU.VBS SCRIPT, REF #69
   objOUT.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : FASTNET : " & strVER
   objLOG.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : FASTNET : " & strVER
@@ -104,8 +104,8 @@ if (errRET = 0) then                                   ''ARGUMENTS PASSED, CONTI
     ''DOWNLOAD OOKLA SPEEDTEST CLI UTILITY , 'ERRRET'=14 , REF #2
     objOUT.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING FAST SPEEDTEST CMD UTILITY"
     objLOG.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING FAST SPEEDTEST CMD UTILITY"
-    call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/ookla/speedtest.exe", "C:\IT", "speedtest.exe")
-    call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/ookla/speedtest-cli.ini", strAPP & "\Ookla\Speedtest CLI", "speedtest-cli.ini")
+    call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/ookla/speedtest.exe", "C:\IT", "speedtest.exe")
+    call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/ookla/speedtest-cli.ini", strAPP & "\Ookla\Speedtest CLI", "speedtest-cli.ini")
     if (errRET <> 0) then
       call LOGERR(14)
     end if

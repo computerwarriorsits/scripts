@@ -191,7 +191,7 @@ if (errRET = 0) then                                          ''ARGUMENTS PASSED
 	objLOG.write vbnewline & vbnewline & now & vbtab & " - EXECUTING MSP_FILTER"
 	''AUTOMATIC UPDATE, MSP_FILTER.VBS, REF #2 , REF #69 , REF #68
   ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #69 , REF #68
-  call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
+  call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
   ''EXECUTE CHKAU.VBS SCRIPT, REF #69
   objOUT.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : MSP_FILTER : " & strVER
   objLOG.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : MSP_FILTER : " & strVER
@@ -225,7 +225,7 @@ if (errRET = 0) then                                          ''ARGUMENTS PASSED
         if (objFSO.fileexists("C:\IT\Scripts\filters.txt")) then
           objFSO.deletefile "C:\IT\Scripts\filters.txt", true
         end if
-        call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/MSP%20Backups/filters.txt", "C:\IT\Scripts", "filters.txt")
+        call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/MSP%20Backups/filters.txt", "C:\IT\Scripts", "filters.txt")
         set objTMP = objFSO.opentextfile("C:\IT\Scripts\filters.txt", 1)
         while (not objTMP.atendofstream)
           strTMP = strTMP & objTMP.readline
@@ -264,7 +264,7 @@ if (errRET = 0) then                                          ''ARGUMENTS PASSED
         if (objFSO.fileexists("C:\IT\Scripts\includes.txt")) then
           objFSO.deletefile "C:\IT\Scripts\includes.txt", true
         end if
-        call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/MSP%20Backups/includes.txt", "C:\IT\Scripts", "includes.txt")
+        call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/MSP%20Backups/includes.txt", "C:\IT\Scripts", "includes.txt")
         set objTMP = objFSO.opentextfile("C:\IT\Scripts\includes.txt", 1)
         while (not objTMP.atendofstream)
           strTMP = strTMP & objTMP.readline
@@ -311,7 +311,7 @@ if (errRET = 0) then                                          ''ARGUMENTS PASSED
         if (objFSO.fileexists("C:\IT\Scripts\cloud_filters.txt")) then
           objFSO.deletefile "C:\IT\Scripts\cloud_filters.txt", true
         end if
-        call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/MSP%20Backups/cloud_filters.txt", "C:\IT\Scripts", "cloud_filters.txt")
+        call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/MSP%20Backups/cloud_filters.txt", "C:\IT\Scripts", "cloud_filters.txt")
         set objTMP = objFSO.opentextfile("C:\IT\Scripts\cloud_filters.txt", 1)
         while (not objTMP.atendofstream)
           strTMP = strTMP & objTMP.readline
@@ -352,7 +352,7 @@ if (errRET = 0) then                                          ''ARGUMENTS PASSED
         if (objFSO.fileexists("C:\IT\Scripts\cloud_includes.txt")) then
           objFSO.deletefile "C:\IT\Scripts\cloud_includes.txt", true
         end if
-        'call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/MSP%20Backups/cloud_includes.txt", "C:\IT\Scripts", "cloud_includes.txt")
+        'call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/MSP%20Backups/cloud_includes.txt", "C:\IT\Scripts", "cloud_includes.txt")
         'set objTMP = objFSO.opentextfile("C:\IT\Scripts\cloud_includes.txt", 1)
         'while (not objTMP.atendofstream)
         '  strTMP = strTMP & objTMP.readline

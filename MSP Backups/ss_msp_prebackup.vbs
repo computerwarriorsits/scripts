@@ -66,7 +66,7 @@ objOUT.write vbnewline & vbnewline & now & vbtab & " - EXECUTING SS_MSP_PREBACKU
 objLOG.write vbnewline & vbnewline & now & vbtab & " - EXECUTING SS_MSP_PREBACKUP" & vbnewline
 ''AUTOMATIC UPDATE, SS_MSP_PREBACKUP.VBS, REF #2 , REF #69 , REF #68 , FIXES #50
 ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #69 , REF #68
-call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
+call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
 ''EXECUTE CHKAU.VBS SCRIPT, REF #69
 objOUT.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : SS_MSP_PREBACKUP : " & strVER
 objLOG.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : SS_MSP_PREBACKUP : " & strVER

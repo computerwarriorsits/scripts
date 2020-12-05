@@ -73,7 +73,7 @@ if (errRET = 0) then
   objLOG.write vbnewline & vbnewline & now & vbtab & " - EXECUTING TASKKILL_FORCE"
 	''AUTOMATIC UPDATE, TASKKILL_FORCE.VBS, REF #2 , REF #69 , REF #68
   ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #69 , REF #68
-  call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
+  call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
   ''EXECUTE CHKAU.VBS SCRIPT, REF #69
   objOUT.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : TASKKILL_FORCE : " & strVER
   objLOG.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : TASKKILL_FORCE : " & strVER
@@ -90,7 +90,7 @@ if (errRET = 0) then
   if ((intRET = 4) or (intRET = 10) or (intRET = 11) or (intRET = 1) or (intRET = 2147221505) or (intRET = 2147221517)) then
     ''DOWNLOAD 'PSKILL', DOES NOT ACCEPT ADDITIONAL PARAMETERS CURRENTLY
     if (blnPSK) then
-      call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/dev/PSTools/pskill.exe", "pskill.exe")
+      call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/dev/PSTools/pskill.exe", "pskill.exe")
       call HOOK("c:\temp\pskill.exe -accepteula -t " & strPROC)
     ''CALL 'TASKKILL /F /FI 'USERNAME EQ USER' /IM 'PROCESS' /T'
     elseif (not blnPSK) then

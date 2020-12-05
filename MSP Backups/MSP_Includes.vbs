@@ -67,7 +67,7 @@ elseif (errRET = 0) then                                    ''ARGUMENTS PASSED, 
 	''DOWNLOAD 'INCLUDES.TXT' BACKUP INCLUDES DEFINITION FILE , 'ERRRET'=2 , REF #2
 	objOUT.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING 'INCLUDES.TXT' BACKUP INCLUDES DEFINITION"
   objLOG.write vbnewline & now & vbtab & vbtab & " - DOWNLOADING 'INCLUDES.TXT' BACKUP INCLUDES DEFINITION"
-  call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/MSP%20Backups/includes.txt", "includes.txt")
+  call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/MSP%20Backups/includes.txt", "includes.txt")
   set objTMP = objFSO.opentextfile("C:\temp\includes.txt", 1)
   while (not objTMP.atendofstream)
     strTMP = strTMP & objTMP.readline
@@ -111,7 +111,7 @@ sub CHKAU()																									''CHECK FOR SCRIPT UPDATE , 'ERRRET'=10 , MS
 	''FORCE SYNCHRONOUS
 	objXML.async = false
 	''LOAD SCRIPT VERSIONS DATABASE XML
-	if objXML.load("https://github.com/CW-Khristos/scripts/raw/dev/version.xml") then
+	if objXML.load("https://github.com/computerwarriorsits/scripts/raw/dev/version.xml") then
 		set colVER = objXML.documentelement
 		for each objSCR in colVER.ChildNodes
 			''LOCATE CURRENTLY RUNNING SCRIPT
@@ -123,7 +123,7 @@ sub CHKAU()																									''CHECK FOR SCRIPT UPDATE , 'ERRRET'=10 , MS
 					objOUT.write vbnewline & now & vbtab & " - UPDATING " & objSCR.nodename & " : " & objSCR.text & vbnewline
 					objLOG.write vbnewline & now & vbtab & " - UPDATING " & objSCR.nodename & " : " & objSCR.text & vbnewline
 					''DOWNLOAD LATEST VERSION OF SCRIPT
-					call FILEDL("https://github.com/CW-Khristos/scripts/raw/dev/MSP%20Backups/MSP_Includes.vbs", wscript.scriptname)
+					call FILEDL("https://github.com/computerwarriorsits/scripts/raw/dev/MSP%20Backups/MSP_Includes.vbs", wscript.scriptname)
 					''RUN LATEST VERSION
 					if (wscript.arguments.count > 0) then             ''ARGUMENTS WERE PASSED
 						for x = 0 to (wscript.arguments.count - 1)
