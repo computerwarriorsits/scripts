@@ -233,12 +233,12 @@ if (errRET = 0) then                                                        ''AR
         call LOGERR(30)
       end if
       ''EXECUTE SERVICE LOGON SCRIPT : SVCPERM , 'ERRRET'=31 , REF #2 , FIXES #32 , REF #71
-      if (objFSO.fileexists("c:\temp\svcperm.vbs")) then                                  ''SVCPERM.VBS DOWNLOAD SUCCESSFUL
+      if (objFSO.fileexists("C:\IT\Scripts\svcperm.vbs")) then                                  ''SVCPERM.VBS DOWNLOAD SUCCESSFUL
         objOUT.write vbnewline & vbnewline & now & vbtab & vbtab & " - EXECUTING SERVICE LOGON SCRIPT : SVCPERM : THIS MAY TAKE A FEW MOMENTS"
         objLOG.write vbnewline & vbnewline & now & vbtab & vbtab & " - EXECUTING SERVICE LOGON SCRIPT : SVCPERM : THIS MAY TAKE A FEW MOMENTS"
         call HOOK("cscript.exe //nologo " & chr(34) & "c:\temp\svcperm.vbs" & chr(34) & " " & chr(34) & strUSR & chr(34) & _
           " " & chr(34) & strOPT & chr(34) & " " & chr(34) & strPWD & chr(34) & " " & chr(34) & "Backup Service Controller" & chr(34))
-      elseif (not objFSO.fileexists("c:\temp\svcperm.vbs")) then                          ''SVCPERM.VBS DOWNLOAD UNSUCCESSFUL , 'ERRRET'=31
+      elseif (not objFSO.fileexists("C:\IT\Scripts\svcperm.vbs")) then                          ''SVCPERM.VBS DOWNLOAD UNSUCCESSFUL , 'ERRRET'=31
         call LOGERR(31)
       end if
       if (errRET = 0) then                                                                ''SERVICE PERMISSIONS UPDATE SUCCESSFUL
