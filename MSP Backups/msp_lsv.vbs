@@ -118,7 +118,7 @@ if (errRET = 0) then                                        ''ARGUMENTS PASSED ,
   intRET = (intRET - vbObjectError)
   objOUT.write vbnewline & "errRET='" & intRET & "'"
   objLOG.write vbnewline & "errRET='" & intRET & "'"
-  if ((intRET = 4) or (intRET = 10) or (intRET = 11) or (intRET = 1) or (intRET = 2147221517)) then
+  if ((intRET = 4) or (intRET = 10) or (intRET = 11) or (intRET = 1) or (intRET = 2147221517) or (intRET = 2147221505)) then
     objOUT.write vbnewline & now & vbtab & vbtab & " - NO UPDATE FOUND : MSP_LSV : " & strVER
     objLOG.write vbnewline & now & vbtab & vbtab & " - NO UPDATE FOUND : MSP_LSV : " & strVER
     ''EXPORT MSP BACKUP SETTINGS USING CLIENTTOOL UTILITY
