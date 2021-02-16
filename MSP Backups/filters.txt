@@ -27,6 +27,7 @@ C:\wu_output|
 %PROGRAMFILES%\N-Able Technologies\AVDefender\mitm_cache|
 %PROGRAMFILES%\N-Able Technologies\AVDefender\Quarantine|
 %PROGRAMFILES%\N-Able Technologies\AVDefender\ThreatScanner|
+%PROGRAMFILES%\ThreatLocker|
 %PROGRAMDATA%\MXB|
 %PROGRAMDATA%\MXB.old|
 %PROGRAMDATA%\MXB.old2|
