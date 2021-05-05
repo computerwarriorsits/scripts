@@ -1,0 +1,1 @@
+@SC QC "Backup Service Controller" | FindStr SERVICE_START_NAME
