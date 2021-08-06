@@ -1,6 +1,4 @@
-# WINDOWS AGENT SELF-HEALING
-# By Jonathan G. Weston <jonathan@thecomputerwarriors.com> and David Potter <david@thecomputerwarriors.com>
-# $null check thanks to CJ Bledsoe
+﻿# WINDOWS AGENT SELF-HEALING
 If (${env:ProgramFiles(x86)}) {
   $ProgramFilesPath = ${env:ProgramFiles(x86)}
 } Else {
@@ -13,10 +11,10 @@ $GoodServerBackupExists = Test-Path $AgentConfigPath\ServerConfig.xml.Good -Path
 [xml]$XmlServer = Get-Content -LiteralPath $AgentConfigPath\ServerConfig.xml
 $ApplianceID = $XmlAppliance.ApplianceConfig.ApplianceID
 $BackupServerIP = $XmlServer.ServerConfig.BackupServerIP
-If (($ApplianceID -ne -1) -And ($ApplianceID -ne $null)) {
+If ($ApplianceID -ne -1) {
   Copy-Item -LiteralPath $AgentConfigPath\ApplianceConfig.xml -Destination $AgentConfigPath\ApplianceConfig.xml.Good -Force
   Write-Host {Backed up ApplianceConfig.xml}
-  If (($BackupServerIP -ne "localhost") -And ($BackupServerIP -ne $null)) {
+  If ($BackupServerIP -ne "localhost") {
     Copy-Item -LiteralPath $AgentConfigPath\ServerConfig.xml -Destination $AgentConfigPath\ServerConfig.xml.Good -Force
     Write-Host {Backed up ServerConfig.xml}
   } Else {
