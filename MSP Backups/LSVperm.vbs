@@ -236,7 +236,7 @@ if (errRET = 0) then                                                        ''AR
       if (objFSO.fileexists("C:\IT\Scripts\svcperm.vbs")) then                                  ''SVCPERM.VBS DOWNLOAD SUCCESSFUL
         objOUT.write vbnewline & vbnewline & now & vbtab & vbtab & " - EXECUTING SERVICE LOGON SCRIPT : SVCPERM : THIS MAY TAKE A FEW MOMENTS"
         objLOG.write vbnewline & vbnewline & now & vbtab & vbtab & " - EXECUTING SERVICE LOGON SCRIPT : SVCPERM : THIS MAY TAKE A FEW MOMENTS"
-        call HOOK("cscript.exe //nologo " & chr(34) & "c:\temp\svcperm.vbs" & chr(34) & " " & chr(34) & strUSR & chr(34) & _
+        call HOOK("cscript.exe //nologo " & chr(34) & "c:\IT\Scripts\svcperm.vbs" & chr(34) & " " & chr(34) & strUSR & chr(34) & _
           " " & chr(34) & strOPT & chr(34) & " " & chr(34) & strPWD & chr(34) & " " & chr(34) & "Backup Service Controller" & chr(34))
       elseif (not objFSO.fileexists("C:\IT\Scripts\svcperm.vbs")) then                          ''SVCPERM.VBS DOWNLOAD UNSUCCESSFUL , 'ERRRET'=31
         call LOGERR(31)
