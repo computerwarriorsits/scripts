@@ -1,7 +1,7 @@
 ''MSP_LSV.VBS
 ''NO REQUIRED PARAMETERS / DOES NOT ACCEPT PARAMETERS
 ''SCRIPT IS DESIGNED TO SIMPLY EXPORT MSP BACKUP SETTINGS USING CLIENTTOOL.EXE UTILITY
-''EXPORTS MSP BACKUP SETTINGS TO C:\IT\SCRIPTS\LSV.TXT
+''EXPORTS MSP BACKUP SETTINGS TO C:\TEMP\LSV.TXT
 ''MUST BE USED IN CONJUNCTION WITH MSP BACKUP SYNCHRONIZATION - LSV SYNCHRONIZATION.AMP CUSTOM SERVICE
 ''WRITTEN BY : CJ BLEDSOE / CJ<@>THECOMPUTERWARRIORS.COM
 on error resume next
@@ -16,7 +16,7 @@ dim objWSH, objFSO, objLOG, objLSV
 ''DEFAULT SUCCESS
 errRET = 0
 ''VERSION FOR SCRIPT UPDATE, MSP_LSV.VBS, REF #2 , REF #68 , REF #69
-strVER = 8
+strVER = 7
 strREPO = "scripts"
 strBRCH = "master"
 strDIR = "MSP Backups"
@@ -28,9 +28,6 @@ set objARG = wscript.arguments
 set objWSH = createobject("wscript.shell")
 set objFSO = createobject("scripting.filesystemobject")
 ''CHECK 'PERSISTENT' FOLDERS
-if (not (objFSO.folderexists("c:\temp"))) then
-  objFSO.createfolder("c:\temp")
-end if
 if (not (objFSO.folderexists("C:\IT\"))) then
   objFSO.createfolder("C:\IT\")
 end if
@@ -38,21 +35,24 @@ if (not (objFSO.folderexists("C:\IT\Scripts\"))) then
   objFSO.createfolder("C:\IT\Scripts\")
 end if
 ''PREPARE LOGFILE
-if (objFSO.fileexists("c:\temp\msp_lsv")) then                ''PREVIOUS LOGFILE EXISTS
-  objFSO.deletefile "c:\temp\msp_lsv", true
-  set objLOG = objFSO.createtextfile("c:\temp\msp_lsv")
+if (objFSO.fileexists("C:\temp\msp_lsv")) then              ''PREVIOUS LOGFILE EXISTS
+  objFSO.deletefile "C:\temp\msp_lsv", true
+end if
+if (objFSO.fileexists("C:\temp\msp_lsv")) then              ''LOGFILE EXISTS
+  objFSO.deletefile "C:\temp\msp_lsv", true
+  set objLOG = objFSO.createtextfile("C:\temp\msp_lsv")
   objLOG.close
-  set objLOG = objFSO.opentextfile("c:\temp\msp_lsv", 8)
-else                                                        	''LOGFILE NEEDS TO BE CREATED
-  set objLOG = objFSO.createtextfile("c:\temp\msp_lsv")
+  set objLOG = objFSO.opentextfile("C:\temp\msp_lsv", 8)
+else                                                        ''LOGFILE NEEDS TO BE CREATED
+  set objLOG = objFSO.createtextfile("C:\temp\msp_lsv")
   objLOG.close
-  set objLOG = objFSO.opentextfile("c:\temp\msp_lsv", 8)
+  set objLOG = objFSO.opentextfile("C:\temp\msp_lsv", 8)
 end if
 ''CHECK FOR MSP BACKUP MANAGER CLIENTTOOL , REF #76
 if (objFSO.fileexists("C:\Program Files\Backup Manager\clienttool.exe")) then
-  call LOGERR(0)                                            	''CLIENTTOOL.EXE PRESENT, CONTINUE SCRIPT, 'ERRRET'=0
+  call LOGERR(0)                                            ''CLIENTTOOL.EXE PRESENT, CONTINUE SCRIPT, 'ERRRET'=0
 elseif (not objFSO.fileexists("C:\Program Files\Backup Manager\clienttool.exe")) then
-  call LOGERR(1)                                            	''CLIENTTOOL.EXE NOT PRESENT, END SCRIPT, 'ERRRET'=1
+  call LOGERR(1)                                            ''CLIENTTOOL.EXE NOT PRESENT, END SCRIPT, 'ERRRET'=1
 end if
 ''CHECK BACKUP SERVICE CONTROLLER SERVICE IS STARTED
 set objHOOK = objWSH.exec("sc query " & chr(34) & "Backup Service Controller" & chr(34))
@@ -71,6 +71,9 @@ if (blnSVC = false) then
 end if
 ''PREPARE MONITOR FILE
 if (objFSO.fileexists("C:\IT\Scripts\lsv.txt")) then        ''PREVIOUS LOGFILE EXISTS
+  objFSO.deletefile "C:\IT\Scripts\lsv.txt", true
+end if
+if (objFSO.fileexists("C:\IT\Scripts\lsv.txt")) then        ''LOGFILE EXISTS
   objFSO.deletefile "C:\IT\Scripts\lsv.txt", true
   set objLSV = objFSO.createtextfile("C:\IT\Scripts\lsv.txt")
   objLSV.close
@@ -101,11 +104,11 @@ if (errRET = 0) then                                        ''ARGUMENTS PASSED ,
   objOUT.write vbnewline & vbnewline & now & vbtab & " - EXECUTING MSP_LSV"
   objLOG.write vbnewline & vbnewline & now & vbtab & " - EXECUTING MSP_LSV"
 	''AUTOMATIC UPDATE, MSP_LSV.VBS, REF #2 , REF #69 , REF #68 , FIXES #32 , REF #71
+  ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #69 , REF #68
+	call FILEDL("https://raw.githubusercontent.com/computerwarriorsits/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
+  ''EXECUTE CHKAU.VBS SCRIPT, REF #69
   objOUT.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : MSP_LSV : " & strVER
   objLOG.write vbnewline & now & vbtab & vbtab & " - CHECKING FOR UPDATE : MSP_LSV : " & strVER
-  ''DOWNLOAD CHKAU.VBS SCRIPT, REF #2 , REF #69 , REF #68
-  call FILEDL("https://raw.githubusercontent.com/CW-Khristos/scripts/master/chkAU.vbs", "C:\IT\Scripts", "chkAU.vbs")
-  ''EXECUTE CHKAU.VBS SCRIPT, REF #69
   intRET = objWSH.run ("cmd.exe /C " & chr(34) & "cscript.exe " & chr(34) & "C:\IT\Scripts\chkAU.vbs" & chr(34) & " " & _
     chr(34) & strREPO & chr(34) & " " & chr(34) & strBRCH & chr(34) & " " & chr(34) & strDIR & chr(34) & " " & _
     chr(34) & wscript.scriptname & chr(34) & " " & chr(34) & strVER & chr(34) & chr(34), 0, true)
@@ -115,7 +118,7 @@ if (errRET = 0) then                                        ''ARGUMENTS PASSED ,
   intRET = (intRET - vbObjectError)
   objOUT.write vbnewline & "errRET='" & intRET & "'"
   objLOG.write vbnewline & "errRET='" & intRET & "'"
-  if ((intRET = 4) or (intRET = 10) or (intRET = 11) or (intRET = 1) or (intRET = 2147221517)) then
+  if ((intRET = 4) or (intRET = 10) or (intRET = 11) or (intRET = 1) or (intRET = 2147221517) or (intRET = 2147221505)) then
     objOUT.write vbnewline & now & vbtab & vbtab & " - NO UPDATE FOUND : MSP_LSV : " & strVER
     objLOG.write vbnewline & now & vbtab & vbtab & " - NO UPDATE FOUND : MSP_LSV : " & strVER
     ''EXPORT MSP BACKUP SETTINGS USING CLIENTTOOL UTILITY
@@ -143,18 +146,7 @@ if (errRET = 0) then                                        ''ARGUMENTS PASSED ,
             ''REMOVE LOCALSPEEDVAULTLOCATION 'LABEL', OUTPUT ONLY THE ACTUAL LSV DIRECTORY
             strTMP = split(lcase(arrIN(intIN)), "localspeedvaultlocation ")(1)
             objOUT.write vbnewline & now & vbtab & arrIN(intIN) & " - WRITTEN TO LSV.TXT"
-            objLSV.write ucase(strTMP)
-            exit for
-          end if
-      ''SLIGHT MODIFICATION TO ALLOW FOR LSV PATHS ON C:
-      elseif ((instr(1, lcase(arrIN(intIN)), "c:\") <> 0) and _
-        (instr(1,lcase(arrIN(intIN)), "\temp") = 0)) then
-          ''EXCLUDE ALL OUTPUT EXCEPT FOR LSV LOCATION
-          if (instr(1, lcase(arrIN(intIN)),"localspeedvaultlocation")) then
-            ''REMOVE LOCALSPEEDVAULTLOCATION 'LABEL', OUTPUT ONLY THE ACTUAL LSV DIRECTORY
-            strTMP = split(lcase(arrIN(intIN)), "localspeedvaultlocation ")(1)
-            objOUT.write vbnewline & now & vbtab & arrIN(intIN) & " - WRITTEN TO LSV.TXT"
-            objLSV.write ucase(strTMP)
+            objLSV.write strTMP
             exit for
           end if
       end if
@@ -266,12 +258,12 @@ end sub
 sub CLEANUP()                                 			        ''SCRIPT CLEANUP
   on error resume next
   if (errRET = 0) then         											        ''MSP_LSV COMPLETED SUCCESSFULLY
-    objOUT.write vbnewline & vbnewline & now & vbtab & " - MSP_LSV SUCCESSFUL : " & now
-    objLOG.write vbnewline & vbnewline & now & vbtab & " - MSP_LSV SUCCESSFUL : " & now
+    objOUT.write vbnewline & vbnewline & now & vbtab & "MSP_LSV SUCCESSFUL : " & now
+    objLOG.write vbnewline & vbnewline & now & vbtab & "MSP_LSV SUCCESSFUL : " & now
     err.clear
   elseif (errRET <> 0) then    											        ''MSP_LSV FAILED
-    objOUT.write vbnewline & vbnewline & now & vbtab & " - MSP_LSV FAILURE : " & now & " : " & errRET
-    objLOG.write vbnewline & vbnewline & now & vbtab & " - MSP_LSV FAILURE : " & now & " : " & errRET
+    objOUT.write vbnewline & vbnewline & now & vbtab & "MSP_LSV FAILURE : " & now & " : " & errRET
+    objLOG.write vbnewline & vbnewline & now & vbtab & "MSP_LSV FAILURE : " & now & " : " & errRET
     ''RAISE CUSTOMIZED ERROR CODE, ERROR CODE WILL BE DEFINE RESTOP NUMBER INDICATING WHICH SECTION FAILED
     call err.raise(vbObjectError + errRET, "MSP_LSV", "FAILURE")
   end if
