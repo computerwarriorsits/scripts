@@ -1,6 +1,20 @@
 # WINDOWS AGENT SELF-HEALING
 # By Jonathan G. Weston <jonathan@thecomputerwarriors.com> and David Potter <david@thecomputerwarriors.com>
 # $null check thanks to CJ Bledsoe
+
+# Check and start the Windows Agent Service
+$Agent = "Windows Agent Service"
+if ((Get-Service -Name $Agent).Status -ne 'Running') {
+    Start-Service -Name $Agent
+}
+
+# Check and start the Windows Agent Maintenance Service
+$AgentMaint = "Windows Agent Maintenance Service"
+if ((Get-Service -Name $AgentMaint).Status -ne 'Running') {
+    Start-Service -Name $AgentMaint
+}
+
+# Agent config file check
 If (${env:ProgramFiles(x86)}) {
   $ProgramFilesPath = ${env:ProgramFiles(x86)}
 } Else {
